@@ -1,6 +1,6 @@
 language: python
 
-dist: precise
+os: osx
 sudo: required
 python:
   - "2.7"
