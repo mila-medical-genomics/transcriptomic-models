@@ -1,4 +1,5 @@
 UNKNOWN*
+*.pyc
 __pycache__/
 .cache/
 .eggs/
