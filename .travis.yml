@@ -1,4 +1,6 @@
 language: python
+
+dist: precise
 sudo: required
 python:
   - "2.7"
