@@ -1,4 +1,5 @@
 UNKNOWN*
+data/*.pyc
 *.pyc
 __pycache__/
 .cache/
