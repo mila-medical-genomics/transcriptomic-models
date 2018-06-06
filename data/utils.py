@@ -5,6 +5,7 @@ from torch.utils.data.sampler import SubsetRandomSampler
 from gene_datasets import BRCACoexpr, GBMDataset, TCGATissue, NSLRSyntheticDataset, DGEXGEO, TCGAGeneInference
 from datasets import RandomDataset, PercolateDataset
 import data, data.colombos
+import academictorrents as at
 
 
 def split_dataset(dataset, batch_size=100, random=False, train_ratio=0.8, seed=1993, nb_samples=None, nb_per_class=None):
@@ -72,7 +73,7 @@ def split_dataset(dataset, batch_size=100, random=False, train_ratio=0.8, seed=1
     return train_set, valid_set, test_set
 
 
-def get_dataset(data_dir, data_file, seed, nb_class, nb_examples, nb_nodes, dataset, nb_master_nodes, opt):
+def get_dataset(seed, nb_class, nb_examples, nb_nodes, dataset, nb_master_nodes, opt):
     """
     Get a dataset based on the options.
     :param opt:
@@ -95,7 +96,8 @@ def get_dataset(data_dir, data_file, seed, nb_class, nb_examples, nb_nodes, data
 
     elif dataset == 'tcga-gbm':
         logging.info("Getting TCGA GBM Dataset")
-        dataset = GBMDataset(data_dir=data_dir, data_file=data_file, seed=seed, nb_class=nb_class, nb_examples=nb_examples, nb_nodes=nb_nodes)
+        path = at.get_dataset('tcga-gbm')
+        dataset = GBMDataset(path, seed=seed, nb_class=nb_class, nb_examples=nb_examples, nb_nodes=nb_nodes)
 
     elif dataset == 'nslr-syn':
         logging.info("Getting NSLR Synthetic Dataset")
