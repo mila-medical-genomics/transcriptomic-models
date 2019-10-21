@@ -23,5 +23,5 @@ tensorflow-gpu==1.1.0
 tensorflow-tensorboard==0.4.0
 torch==0.4.0
 torchvision==0.2.0
-urllib3==1.22
+urllib3==1.24.2
 virtualenv==15.2.0
